@@ -5,6 +5,7 @@
 #
 
 # bfd session key(bigdian): 0000F95C
+# bfd session result: 00000011 00000000
 
 import json
 
