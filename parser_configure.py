@@ -114,49 +114,44 @@ def main():
     int_list = do_parse_input_data(table_data)
     print(int_list)
     do_parse_table(argument, int_list, configure)
-    
-    
-        file_name = "abc.c"
-
-    fp = open(file_name)
-
-lines_num = 1000
-with open('filename') as file:
-    for line in file:
-         lines_num = lines_num + 1
-
-fp = open('filename')
-pattern = re.compile("VPLS_IC_V6PW")
+#!/bin/env python3
+import re
 
 
 def get_final_line(fp):
-    pattern = re.compile(")")
-    lines = list(10)
+    patterns = re.compile("\)")
+    line = ""
+    lines = []
     for i in range(10):
         line_str = fp.readline()
-        if (pattern.search(line_str) != None):
-            lines[i] = line_str
+        if (patterns.search(line_str) != None):
+            lines.append(line_str)
             break
+        lines.append(line_str)
 
-        lines[i] = line_str
+    for i in lines:
+        line = line + i
 
+    return line
     
 
+if __name__ == "__main__":
+    pattern = re.compile("LOG_ERR")
+    patterns = re.compile("\)")
+    fp = open("log.txt")
 
-
-
-for i in range(lines_num):
-    line_str = fp.readline()
-    if  line_str != None:
-        pattern.search(line_str)
+    while True:
+        line_str = fp.readline()
+        if not line_str:
+            break
         m = re.search(pattern, line_str)
         if (m != None):
-            line_fin = get_final_line(fp)
-            logic_line = line_str + line_fin
-            final_line = do_logic_line(logic_line)
-            print(final_line)
-
-
+            m = re.search(patterns, line_str)
+            if (m != None):
+                print(line_str)
+            else:
+                line_fin = get_final_line(fp)
+                print(line_fin)
 
 if __name__ == "__main__":
     main()
