@@ -1,1 +1,25 @@
 a simple example parse data
+
+
+    """    /* VSI和PW LinkId参数检查 */
+    if ((BOOL_TRUE == VPLS_VSIINDEX_IS_INVALID(uiVsiIdx)) ||
+        (BOOL_TRUE == VPLS_PWID_IS_INVALID(usLinkIndex)))
+    {
+        DRV_DIAG_MON(VPLS_IC_V6PW,LOG_ERR,  "VPLS_CreatePwInfo: Invalid para! uiVsiIdx = %u, usLinkId = %u, usLinkIndex = %u.", 
+                    "Failed to fill pw forward info, uiVsiIdx =%u, usLinkIndex = %u."
+                        uiVsiIdx, usLinkId, usLinkIndex);
+        return ERROR_FAILED;
+    } """
+
+    """         /* vn最大激活下一跳个数为32 */
+        if ((ERROR_NO_ENOUGH_RESOURCE != ulRet) && (ERROR_NOT_READY != ulRet))
+        {
+            DRV_DIAG_MON(VPLS_IC_V6PW,LOG_ERR,  "Failed to fill pw forward info, uiVsiIdx =%u, usLinkIndex = %u.", uiVsiIdx, usLinkIndex);
+        }
+        else
+        {
+            DRV_IC_DEBUG(VPLS_IC_V6PW,   "Failed to fill pw forward info, uiVsiIdx =%u, usLinkIndex = %u."
+                                    " ASDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD", 
+            
+            uiVsiIdx, usLinkIndex);
+        } """
