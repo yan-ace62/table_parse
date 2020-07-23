@@ -114,6 +114,48 @@ def main():
     int_list = do_parse_input_data(table_data)
     print(int_list)
     do_parse_table(argument, int_list, configure)
+    
+    
+        file_name = "abc.c"
+
+    fp = open(file_name)
+
+lines_num = 1000
+with open('filename') as file:
+    for line in file:
+         lines_num = lines_num + 1
+
+fp = open('filename')
+pattern = re.compile("VPLS_IC_V6PW")
+
+
+def get_final_line(fp):
+    pattern = re.compile(")")
+    lines = list(10)
+    for i in range(10):
+        line_str = fp.readline()
+        if (pattern.search(line_str) != None):
+            lines[i] = line_str
+            break
+
+        lines[i] = line_str
+
+    
+
+
+
+
+for i in range(lines_num):
+    line_str = fp.readline()
+    if  line_str != None:
+        pattern.search(line_str)
+        m = re.search(pattern, line_str)
+        if (m != None):
+            line_fin = get_final_line(fp)
+            logic_line = line_str + line_fin
+            final_line = do_logic_line(logic_line)
+            print(final_line)
+
 
 
 if __name__ == "__main__":
